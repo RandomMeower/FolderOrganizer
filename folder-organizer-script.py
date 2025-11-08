@@ -36,7 +36,7 @@ def sort(dir_path):
 def run_gui():
     # Create a root Tk window
     root = Tk()
-    root = root.withdraw() # hides empty parts of the window
+    root.withdraw() # hides empty parts of the window
 
     dir_path = filedialog.askdirectory(
         title="Select the Folder You Want to Organize"
