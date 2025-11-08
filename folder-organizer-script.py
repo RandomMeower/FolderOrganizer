@@ -14,10 +14,19 @@ def sort(dir_path):
     for filename in os.listdir(dir_path):
         file_path = os.path.join(dir_path, filename)
 
+        if filename.startswith("."):
+            continue
+
         if os.path.isdir(file_path):
             continue
 
         file_root, file_ext = os.path.splitext(filename)
+
+        if not file_ext:
+            misc_path = os.path.join(dir_path, "MISC")
+            os.makedir(misc_path, exist_ok=True)
+            shutil.move(file_path, misc_path)
+            continue
 
         folder_name = f"{file_ext[1:].upper()}_Files"
 
