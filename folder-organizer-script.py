@@ -35,8 +35,8 @@ def sort(dir_path):
  
 def run_gui():
     # Create a root Tk window
-    root = Tk ()
-    root = withdraw() # hides empty parts of the window
+    root = Tk()
+    root = root.withdraw() # hides empty parts of the window
 
     dir_path = filedialog.askdirectory(
         title="Select the Folder You Want to Organize"
@@ -48,7 +48,7 @@ def run_gui():
             sort(dir_path)
             messagebox.showinfo(
                 "Success!",
-                f"Successfully organized the folder:\n{directory_to_organize}"
+                f"Successfully organized the folder:\n{dir_path}"
             )
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred: {e}")
